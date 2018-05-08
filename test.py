@@ -14,9 +14,12 @@ with open('DSJC125.1.col.txt','r') as fp:
 
 dsat = dsatur(graph)
 dsat.process()
-print max(dsat.get_colors())
+print "Monte Carlo check - ",
+dsat.check_colors()
+print "Chromatic number using DSATUR - {}".format(max(dsat.get_colors()))
 
 mc = monte_carlo(graph)
 mc.process()
-print max(mc.get_colors())
+print "Monte Carlo check - ",
 mc.check_colors()
+print "Chromatic number using Monte Carlo - {}".format(max(mc.get_colors()))

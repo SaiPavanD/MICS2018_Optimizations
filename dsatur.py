@@ -174,3 +174,14 @@ class dsatur:
         """
 
         return [ index for index in xrange(self.__data_pointer.shape[0]) if self.__data_pointer[node_index,index] != 0 ];
+
+    def check_colors(self):
+        count = 0
+        for i in xrange(self.__data_pointer.shape[0]):
+            for j in self.__get_neighbors(i):
+                if self.__coloring[i] == self.__coloring[j]:
+                    print "Error at {}, {}".format(i,j)
+                    count+=1
+        if(count == 0):
+            print "Success"
+        return

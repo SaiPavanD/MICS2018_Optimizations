@@ -23,7 +23,6 @@ class monte_carlo:
                 if self.__colored_nodes[i] == 1:
                     self.__idle_nodes[i] = 1
             temp_mis = self.__get_mis()
-            print temp_mis
             for i in temp_mis:
                 self.__colors[i] = self.__color_count
                 self.__colored_nodes[i] = 1
