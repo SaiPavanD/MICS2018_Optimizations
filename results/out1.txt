@@ -1,0 +1,49 @@
+Iteration number - 1
+
+DSJC1000.1.col.txt
+DSATUR - 27 cols in 271.146342039 sec
+Monte Carlo - 31 cols in 55.0248329639 sec
+
+DSJC1000.5.col.txt
+DSATUR - 117 cols in 1385.0626049 sec
+Monte Carlo - 127 cols in 223.665220976 sec
+
+DSJC1000.9.col.txt
+DSATUR - 299 cols in 2911.12367511 sec
+Monte Carlo - 323 cols in 513.851462841 sec
+
+DSJC125.1.col.txt
+DSATUR - 6 cols in 0.602057933807 sec
+Monte Carlo - 8 cols in 0.242879152298 sec
+
+DSJC125.5.col.txt
+DSATUR - 23 cols in 2.92989301682 sec
+Monte Carlo - 26 cols in 0.76668214798 sec
+
+DSJC125.9.col.txt
+DSATUR - 52 cols in 5.26302194595 sec
+Monte Carlo - 55 cols in 1.32870697975 sec
+
+DSJC250.1.col.txt
+DSATUR - 10 cols in 5.02850604057 sec
+Monte Carlo - 13 cols in 1.6509270668 sec
+
+DSJC250.5.col.txt
+DSATUR - 37 cols in 23.577545166 sec
+Monte Carlo - 44 cols in 4.99841308594 sec
+
+DSJC250.9.col.txt
+DSATUR - 92 cols in 42.0627570152 sec
+Monte Carlo - 96 cols in 9.27870893478 sec
+
+DSJC500.1.col.txt
+DSATUR - 16 cols in 37.1801271439 sec
+Monte Carlo - 19 cols in 9.31259202957 sec
+
+DSJC500.5.col.txt
+DSATUR - 66 cols in 188.131042004 sec
+Monte Carlo - 73 cols in 33.8147099018 sec
+
+DSJC500.9.col.txt
+DSATUR - 170 cols in 345.098996162 sec
+Monte Carlo - 176 cols in 67.9347798824 sec

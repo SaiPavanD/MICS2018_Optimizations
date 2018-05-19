@@ -1,0 +1,250 @@
+Iteration number - 1
+
+DSJC1000.1.col.txt
+DSATUR - 27 colors in 311.173832893 sec
+Monte Carlo - 31 colors in 65.9780168533 sec
+
+DSJC1000.5.col.txt
+DSATUR - 117 colors in 1561.17314005 sec
+Monte Carlo - 128 colors in 248.809763908 sec
+
+DSJC1000.9.col.txt
+DSATUR - 299 colors in 2630.36662006 sec
+Monte Carlo - 324 colors in 466.020829201 sec
+
+DSJC125.1.col.txt
+DSATUR - 6 colors in 0.562117099762 sec
+Monte Carlo - 8 colors in 0.224606990814 sec
+
+DSJC125.5.col.txt
+DSATUR - 23 colors in 2.71320009232 sec
+Monte Carlo - 26 colors in 0.651072025299 sec
+
+DSJC125.9.col.txt
+DSATUR - 52 colors in 4.86861205101 sec
+Monte Carlo - 54 colors in 1.26629495621 sec
+
+DSJC250.1.col.txt
+DSATUR - 10 colors in 4.60295009613 sec
+Monte Carlo - 13 colors in 1.45855784416 sec
+
+DSJC250.5.col.txt
+DSATUR - 37 colors in 21.6041078568 sec
+Monte Carlo - 42 colors in 4.5764939785 sec
+
+DSJC250.9.col.txt
+DSATUR - 92 colors in 39.042678833 sec
+Monte Carlo - 96 colors in 8.56845903397 sec
+
+DSJC500.1.col.txt
+DSATUR - 16 colors in 34.4588968754 sec
+Monte Carlo - 20 colors in 8.92034196854 sec
+
+DSJC500.5.col.txt
+DSATUR - 66 colors in 174.318509102 sec
+Monte Carlo - 73 colors in 30.7458498478 sec
+
+DSJC500.9.col.txt
+DSATUR - 170 colors in 314.990891933 sec
+Monte Carlo - 177 colors in 63.3047120571 sec
+
+Iteration number - 2
+
+DSJC1000.1.col.txt
+DSATUR - 27 colors in 271.268516064 sec
+Monte Carlo - 31 colors in 56.6050820351 sec
+
+DSJC1000.5.col.txt
+DSATUR - 117 colors in 1430.26817417 sec
+Monte Carlo - 128 colors in 238.522789955 sec
+
+DSJC1000.9.col.txt
+DSATUR - 299 colors in 2983.47054505 sec
+Monte Carlo - 323 colors in 538.465701103 sec
+
+DSJC125.1.col.txt
+DSATUR - 6 colors in 0.63484787941 sec
+Monte Carlo - 8 colors in 0.260987043381 sec
+
+DSJC125.5.col.txt
+DSATUR - 23 colors in 3.1344461441 sec
+Monte Carlo - 25 colors in 0.801831960678 sec
+
+DSJC125.9.col.txt
+DSATUR - 52 colors in 5.6705288887 sec
+Monte Carlo - 54 colors in 1.44782590866 sec
+
+DSJC250.1.col.txt
+DSATUR - 10 colors in 5.24240493774 sec
+Monte Carlo - 13 colors in 1.51953315735 sec
+
+DSJC250.5.col.txt
+DSATUR - 37 colors in 24.923678875 sec
+Monte Carlo - 43 colors in 5.33447980881 sec
+
+DSJC250.9.col.txt
+DSATUR - 92 colors in 45.5028889179 sec
+Monte Carlo - 98 colors in 10.1535480022 sec
+
+DSJC500.1.col.txt
+DSATUR - 16 colors in 39.1141049862 sec
+Monte Carlo - 19 colors in 9.65400695801 sec
+
+DSJC500.5.col.txt
+DSATUR - 66 colors in 200.563487053 sec
+Monte Carlo - 75 colors in 35.715626955 sec
+
+DSJC500.9.col.txt
+DSATUR - 170 colors in 363.259644985 sec
+Monte Carlo - 177 colors in 74.1685259342 sec
+
+Iteration number - 3
+
+DSJC1000.1.col.txt
+DSATUR - 27 colors in 291.224533081 sec
+Monte Carlo - 31 colors in 59.3612730503 sec
+
+DSJC1000.5.col.txt
+DSATUR - 117 colors in 1488.70669198 sec
+Monte Carlo - 128 colors in 242.286309004 sec
+
+DSJC1000.9.col.txt
+DSATUR - 299 colors in 2767.59947896 sec
+Monte Carlo - 325 colors in 507.23898387 sec
+
+DSJC125.1.col.txt
+DSATUR - 6 colors in 0.601657867432 sec
+Monte Carlo - 8 colors in 0.249075889587 sec
+
+DSJC125.5.col.txt
+DSATUR - 23 colors in 2.90961503983 sec
+Monte Carlo - 27 colors in 0.832471132278 sec
+
+DSJC125.9.col.txt
+DSATUR - 52 colors in 5.20431017876 sec
+Monte Carlo - 58 colors in 1.37034201622 sec
+
+DSJC250.1.col.txt
+DSATUR - 10 colors in 4.90688490868 sec
+Monte Carlo - 13 colors in 1.46057295799 sec
+
+DSJC250.5.col.txt
+DSATUR - 37 colors in 23.2580890656 sec
+Monte Carlo - 41 colors in 4.92394185066 sec
+
+DSJC250.9.col.txt
+DSATUR - 92 colors in 42.5325760841 sec
+Monte Carlo - 98 colors in 9.30758810043 sec
+
+DSJC500.1.col.txt
+DSATUR - 16 colors in 36.7810790539 sec
+Monte Carlo - 20 colors in 9.08850383759 sec
+
+DSJC500.5.col.txt
+DSATUR - 66 colors in 187.300449848 sec
+Monte Carlo - 73 colors in 35.765789032 sec
+
+DSJC500.9.col.txt
+DSATUR - 170 colors in 342.085880041 sec
+Monte Carlo - 175 colors in 70.4243328571 sec
+
+Iteration number - 4
+
+DSJC1000.1.col.txt
+DSATUR - 27 colors in 292.987576008 sec
+Monte Carlo - 31 colors in 61.2597620487 sec
+
+DSJC1000.5.col.txt
+DSATUR - 117 colors in 1496.75476503 sec
+Monte Carlo - 126 colors in 235.261088133 sec
+
+DSJC1000.9.col.txt
+DSATUR - 299 colors in 2757.59895802 sec
+Monte Carlo - 325 colors in 517.401185036 sec
+
+DSJC125.1.col.txt
+DSATUR - 6 colors in 0.596784114838 sec
+Monte Carlo - 7 colors in 0.236603021622 sec
+
+DSJC125.5.col.txt
+DSATUR - 23 colors in 2.92572808266 sec
+Monte Carlo - 24 colors in 0.675029039383 sec
+
+DSJC125.9.col.txt
+DSATUR - 52 colors in 5.27131009102 sec
+Monte Carlo - 55 colors in 1.34637212753 sec
+
+DSJC250.1.col.txt
+DSATUR - 10 colors in 4.94352507591 sec
+Monte Carlo - 12 colors in 1.50516796112 sec
+
+DSJC250.5.col.txt
+DSATUR - 37 colors in 23.2775921822 sec
+Monte Carlo - 42 colors in 4.85856199265 sec
+
+DSJC250.9.col.txt
+DSATUR - 92 colors in 42.8071401119 sec
+Monte Carlo - 98 colors in 9.30752110481 sec
+
+DSJC500.1.col.txt
+DSATUR - 16 colors in 36.6609518528 sec
+Monte Carlo - 19 colors in 8.63642597198 sec
+
+DSJC500.5.col.txt
+DSATUR - 66 colors in 187.741669178 sec
+Monte Carlo - 74 colors in 32.7076070309 sec
+
+DSJC500.9.col.txt
+DSATUR - 170 colors in 342.062083006 sec
+Monte Carlo - 178 colors in 67.4811458588 sec
+
+Iteration number - 5
+
+DSJC1000.1.col.txt
+DSATUR - 27 colors in 291.035568953 sec
+Monte Carlo - 33 colors in 59.8756558895 sec
+
+DSJC1000.5.col.txt
+DSATUR - 117 colors in 1494.39147115 sec
+Monte Carlo - 128 colors in 238.302026033 sec
+
+DSJC1000.9.col.txt
+DSATUR - 299 colors in 2770.21742916 sec
+Monte Carlo - 319 colors in 497.750693798 sec
+
+DSJC125.1.col.txt
+DSATUR - 6 colors in 0.59606719017 sec
+Monte Carlo - 8 colors in 0.236461877823 sec
+
+DSJC125.5.col.txt
+DSATUR - 23 colors in 2.93862390518 sec
+Monte Carlo - 25 colors in 0.727759838104 sec
+
+DSJC125.9.col.txt
+DSATUR - 52 colors in 5.22998309135 sec
+Monte Carlo - 57 colors in 1.37017202377 sec
+
+DSJC250.1.col.txt
+DSATUR - 10 colors in 4.93496489525 sec
+Monte Carlo - 13 colors in 1.60795283318 sec
+
+DSJC250.5.col.txt
+DSATUR - 37 colors in 23.9082431793 sec
+Monte Carlo - 44 colors in 5.02071285248 sec
+
+DSJC250.9.col.txt
+DSATUR - 92 colors in 42.6906859875 sec
+Monte Carlo - 101 colors in 10.0178070068 sec
+
+DSJC500.1.col.txt
+DSATUR - 16 colors in 37.4128079414 sec
+Monte Carlo - 21 colors in 9.22008299828 sec
+
+DSJC500.5.col.txt
+DSATUR - 66 colors in 182.000815868 sec
+Monte Carlo - 73 colors in 33.3370149136 sec
+
+DSJC500.9.col.txt
+DSATUR - 170 colors in 323.46933794 sec
+Monte Carlo - 174 colors in 61.9431040287 sec
+
