@@ -50,6 +50,7 @@ class dsatur:
             raise ValueError('Only numpy matrix or scipy sparse matrix are supported.')
 
         self.__data_pointer = data;
+        self.__set_adj_list()
         self.__colors = [];
         self.__coloring = None;
 
@@ -173,7 +174,7 @@ class dsatur:
 
         """
 
-        return [ index for index in xrange(self.__data_pointer.shape[0]) if self.__data_pointer[node_index,index] != 0 ];
+        return self.__adj_list[node_index]
 
     def check_colors(self):
         count = 0
@@ -184,4 +185,11 @@ class dsatur:
                     count+=1
         if(count == 0):
             print "Success"
+        return
+
+    def __set_adj_list(self):
+        self.__adj_list = []
+        for row in self.__data_pointer:
+            new_row = row.todense().tolist()[0]
+            self.__adj_list += [[idx for idx in xrange(self.__data_pointer.shape[0]) if new_row[idx]!=0]]
         return

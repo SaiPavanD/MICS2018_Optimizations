@@ -10,12 +10,14 @@ class modified_monte_carlo(monte_carlo):
         if not isinstance(data, nx.Graph):
             raise ValueError('Only networkx graphs are supported.')
         self._data_pointer_nx = data;
-        self._data_pointer = nx.to_scipy_sparse_matrix(data)
-        self._node_weights = random.sample(range(self._data_pointer.shape[0]), self._data_pointer.shape[0])
-        self._colored_nodes = [0] * self._data_pointer.shape[0]
+        self._data_pointer = nx.adjacency_matrix(data)
+        self._num_nodes = len(data)
+        self._adj_list = data.adjacency_list()
+        self._node_weights = random.sample(range(self._num_nodes), self._num_nodes)
+        self._colored_nodes = [0] * self._num_nodes
         self._color_count = []
-        self._colors = [0] * self._data_pointer.shape[0]
-        self._idle_nodes = [0] * self._data_pointer.shape[0]
+        self._colors = [0] * self._num_nodes
+        self._idle_nodes = [0] * self._num_nodes
         self._partition_counts = None
 
     def process(self):
@@ -25,28 +27,25 @@ class modified_monte_carlo(monte_carlo):
         # run the monte carlo on each of the partitions
         self._partition_counts = Counter(self._partitions)
         for partition_num in xrange(max(self._partitions)+1):
-            while(sum([self._colored_nodes[idx] for idx in xrange(self._data_pointer.shape[0]) if self._partitions[idx] == partition_num]) < self._partition_counts[partition_num]):
-                # print sum([self._colors[idx] for idx in xrange(self._data_pointer.shape[0]) if self._partitions[idx] == partition_num]), self._partition_counts[partition_num]
-                self._idle_nodes = [0] * self._data_pointer.shape[0]
-                for i in xrange(self._data_pointer.shape[0]):
+            while(sum([self._colored_nodes[idx] for idx in xrange(self._num_nodes) if self._partitions[idx] == partition_num]) < self._partition_counts[partition_num]):
+                # print sum([self._colors[idx] for idx in xrange(self._num_nodes) if self._partitions[idx] == partition_num]), self._partition_counts[partition_num]
+                self._idle_nodes = [0] * self._num_nodes
+                for i in xrange(self._num_nodes):
                     if self._colored_nodes[i] == 1:
                         self._idle_nodes[i] = 1
                 temp_mis = self._get_mis(partition_num)
-                # if temp_mis == []:
-                #     exit(0)
-                # print temp_mis, [idx for idx in xrange(self._data_pointer.shape[0]) if self._partitions[idx] == partition_num]
                 for i in temp_mis:
                     self._colors[i] = self._color_count[self._partitions[i]]
                     self._colored_nodes[i] = 1
                 self._color_count[self._partitions[i]] += 1
         # merge the colored partitions and resolve any coloring conflicts
-        # print self.get_colors()
-        for node_index in xrange(self._data_pointer.shape[0]):
-            self._resolve_color_conflicts(node_index)
+        for node_index in xrange(self._num_nodes):
+            if self._is_color_conflict(node_index):
+                self._resolve_color_conflicts(node_index)
 
     def _get_mis(self, partition_num):
         mis = []
-        while (sum([self._idle_nodes[idx] for idx in xrange(self._data_pointer.shape[0]) if self._partitions[idx]==partition_num]) < self._partition_counts[partition_num]):
+        while (sum([self._idle_nodes[idx] for idx in xrange(self._num_nodes) if self._partitions[idx]==partition_num]) < self._partition_counts[partition_num]):
             temp_is = self._get_is(partition_num)
             for i in temp_is:
                 self._idle_nodes[i]=1
@@ -57,7 +56,7 @@ class modified_monte_carlo(monte_carlo):
 
     def _get_is(self, partition_num):
         ind_set = []
-        for node_idx in xrange(self._data_pointer.shape[0]):
+        for node_idx in xrange(self._num_nodes):
             if self._partitions[node_idx] == partition_num:
                 if (self._is_local_max(node_idx, partition_num)):
                     ind_set += [node_idx]
@@ -72,33 +71,25 @@ class modified_monte_carlo(monte_carlo):
         return True
 
     def _get_neighbors(self, node_index, partition_num):
-        return [index for index in xrange(self._data_pointer.shape[0]) if self._data_pointer[node_index,index] != 0 and self._idle_nodes[index] == 0 and self._partitions[index] == partition_num ]
+        return [index for index in self._adj_list[node_index] if self._idle_nodes[index] == 0 and self._partitions[index] == partition_num ]
+
+
+    def _is_color_conflict(self, node_index):
+        for idx in self._adj_list[node_index]:
+            if self._colors[idx] == self._colors[node_index]:
+                return True
+        return False
 
     def _resolve_color_conflicts(self, node_index):
-        for index in xrange(self._data_pointer.shape[0]):
-            if self._data_pointer[node_index,index] != 0 and self._colors[index] == self._colors[node_index]:
-                self._assign_min_color(index, node_index)
-
-    def _assign_min_color(self, node1, node2):
-        col_list1 = set([self._colors[node1]])
-        col_list2 = set([self._colors[node2]])
-        for index in xrange(self._data_pointer.shape[0]):
-            if self._data_pointer[node1,index] != 0:
-                col_list1.add(self._colors[index])
-            if self._data_pointer[node2,index] != 0:
-                col_list2.add(self._colors[index])
-        col1 = next(ifilterfalse(col_list1.__contains__, count(1)))
-        col2 = next(ifilterfalse(col_list2.__contains__, count(1)))
-        # print node1, node2, self._colors[node1], self._partitions[node1], self._partitions[node2]
-        if col1 < col2:
-            self._colors[node1] = col1
-        else:
-            self._colors[node2] = col2
+        col_list = set([self._colors[index] for index in self._adj_list[node_index]])
+        col_list.add(self._colors[node_index])
+        self._colors[node_index] = next(ifilterfalse(col_list.__contains__, count(1)))
+        return
 
     def check_colors(self):
-        self._idle_nodes = [0] * self._data_pointer.shape[0]
+        self._idle_nodes = [0] * self._num_nodes
         count = 0
-        for i in xrange(self._data_pointer.shape[0]):
+        for i in xrange(self._num_nodes):
             for j in monte_carlo._get_neighbors(self,i):
                 if self._colors[i] == self._colors[j]:
                     print "Error at node - {} partition - {}, node - {} partition {} with color {}".format(i,self._partitions[i],j,self._partitions[j], self._colors[i])

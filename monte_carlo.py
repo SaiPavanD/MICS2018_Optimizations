@@ -10,16 +10,18 @@ class monte_carlo:
             raise ValueError('Only numpy matrix or scipy sparse matrix are supported.')
 
         self._data_pointer = data;
-        self._node_weights = random.sample(range(self._data_pointer.shape[0]), self._data_pointer.shape[0])
-        self._colored_nodes = [0] * self._data_pointer.shape[0]
+        self._num_nodes = self._data_pointer.shape[0]
+        self._set_adj_list()
+        self._node_weights = random.sample(range(self._num_nodes), self._num_nodes)
+        self._colored_nodes = [0] * self._num_nodes
         self._color_count = 1
-        self._colors = [0] * self._data_pointer.shape[0]
-        self._idle_nodes = [0] * self._data_pointer.shape[0]
+        self._colors = [0] * self._num_nodes
+        self._idle_nodes = [0] * self._num_nodes
 
     def process(self):
-        while(sum(self._colored_nodes) < self._data_pointer.shape[0]):
-            self._idle_nodes = [0] * self._data_pointer.shape[0]
-            for i in xrange(self._data_pointer.shape[0]):
+        while(sum(self._colored_nodes) < self._num_nodes):
+            self._idle_nodes = [0] * self._num_nodes
+            for i in xrange(self._num_nodes):
                 if self._colored_nodes[i] == 1:
                     self._idle_nodes[i] = 1
             temp_mis = self._get_mis()
@@ -31,7 +33,7 @@ class monte_carlo:
 
     def _get_mis(self):
         mis = []
-        while (sum(self._idle_nodes) < self._data_pointer.shape[0]):
+        while (sum(self._idle_nodes) < self._num_nodes):
             temp_is = self._get_is()
             for i in temp_is:
                 self._idle_nodes[i]=1
@@ -42,7 +44,7 @@ class monte_carlo:
 
     def _get_is(self):
         ind_set = []
-        for node_idx in xrange(self._data_pointer.shape[0]):
+        for node_idx in xrange(self._num_nodes):
             if (self._is_local_max(node_idx)):
                 ind_set += [node_idx]
         return ind_set
@@ -56,19 +58,26 @@ class monte_carlo:
         return True
 
     def _get_neighbors(self, node_index):
-        return [ index for index in xrange(self._data_pointer.shape[0]) if self._data_pointer[node_index,index] != 0 and self._idle_nodes[index] == 0];
+        return [ index for index in self._adj_list[node_index] if  self._idle_nodes[index] == 0];
 
     def get_colors(self):
         return self._colors
 
     def check_colors(self):
-        self._idle_nodes = [0] * self._data_pointer.shape[0]
+        self._idle_nodes = [0] * self._num_nodes
         count = 0
-        for i in xrange(self._data_pointer.shape[0]):
+        for i in xrange(self._num_nodes):
             for j in self._get_neighbors(i):
                 if self._colors[i] == self._colors[j]:
                     print "Error at {}, {} with color {}".format(i,j, self._colors[i])
                     count+=1
         if(count == 0):
             print "Success"
+        return
+
+    def _set_adj_list(self):
+        self._adj_list = []
+        for row in self._data_pointer:
+            new_row = row.todense().tolist()[0]
+            self._adj_list += [[idx for idx in xrange(self._num_nodes) if new_row[idx]!=0]]
         return
