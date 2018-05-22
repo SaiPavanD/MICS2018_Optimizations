@@ -39,9 +39,7 @@ class modified_monte_carlo(monte_carlo):
                     self._colored_nodes[i] = 1
                 self._color_count[self._partitions[i]] += 1
         # merge the colored partitions and resolve any coloring conflicts
-        for node_index in xrange(self._num_nodes):
-            if self._is_color_conflict(node_index):
-                self._resolve_color_conflicts(node_index)
+        self._resolve_color_conflicts()
 
     def _get_mis(self, partition_num):
         mis = []
@@ -73,17 +71,18 @@ class modified_monte_carlo(monte_carlo):
     def _get_neighbors(self, node_index, partition_num):
         return [index for index in self._adj_list[node_index] if self._idle_nodes[index] == 0 and self._partitions[index] == partition_num ]
 
-
-    def _is_color_conflict(self, node_index):
-        for idx in self._adj_list[node_index]:
-            if self._colors[idx] == self._colors[node_index]:
-                return True
-        return False
-
-    def _resolve_color_conflicts(self, node_index):
-        col_list = set([self._colors[index] for index in self._adj_list[node_index]])
-        col_list.add(self._colors[node_index])
-        self._colors[node_index] = next(ifilterfalse(col_list.__contains__, count(1)))
+    def _resolve_color_conflicts(self):
+        for node_index in xrange(self._num_nodes):
+            for idx in self._adj_list[node_index]:
+                if self._colors[idx] == self._colors[node_index]:
+                        col_list1 = set([self._colors[index] for index in self._adj_list[node_index]])
+                        col_list2 = set([self._colors[index] for index in self._adj_list[idx]])
+                        col1 = next(ifilterfalse(col_list1.__contains__, count(1)))
+                        col2 = next(ifilterfalse(col_list2.__contains__, count(1)))
+                        if col1 < col2:
+                            self._colors[node_index] = col1
+                        else:
+                            self._colors[idx] = col2
         return
 
     def check_colors(self):

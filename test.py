@@ -11,7 +11,7 @@ g = None
 # for iter in xrange(5):
 #     print "Iteration number - {}".format(iter + 1)
 #     print ""
-for f in sorted(glob('./DIMACS_graphs/*1000*.col.txt')):
+for f in sorted(glob('./DIMACS_graphs/*1000.5*.col.txt')):
     with open(f,'r') as fp:
         num_nodes = int(fp.readline())
         graph =  lil_matrix((num_nodes, num_nodes))
