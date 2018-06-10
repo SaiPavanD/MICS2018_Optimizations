@@ -1,11 +1,11 @@
-from monte_carlo import *
+from mis import *
 import networkx as nx
 from math import ceil
 import metis
 from itertools import count, ifilterfalse
 from collections import Counter
 
-class modified_monte_carlo(monte_carlo):
+class modified_mis(mis):
     def __init__(self, data):
         if not isinstance(data, nx.Graph):
             raise ValueError('Only networkx graphs are supported.')
@@ -89,7 +89,7 @@ class modified_monte_carlo(monte_carlo):
         self._idle_nodes = [0] * self._num_nodes
         count = 0
         for i in xrange(self._num_nodes):
-            for j in monte_carlo._get_neighbors(self,i):
+            for j in mis._get_neighbors(self,i):
                 if self._colors[i] == self._colors[j]:
                     print "Error at node - {} partition - {}, node - {} partition {} with color {}".format(i,self._partitions[i],j,self._partitions[j], self._colors[i])
                     count+=1

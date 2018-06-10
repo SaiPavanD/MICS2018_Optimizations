@@ -1,7 +1,7 @@
 import random
 import numpy as np
 
-class monte_carlo:
+class mis:
     def __init__(self, data):
         try:
             if (data.shape[0] != data.shape[1]):
