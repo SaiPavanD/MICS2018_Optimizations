@@ -1,6 +1,6 @@
 from dsatur import *
 from mis import *
-from modified_mis import *
+from swarm_mis import *
 from scipy.sparse import lil_matrix
 from timeit import default_timer
 from glob import glob
@@ -40,11 +40,11 @@ for iter in xrange(30):
         mc.check_colors()
         print "MIS - {} colors in {} sec".format(max(mc.get_colors()),end2-start2)
 
-        mmc = modified_mis(g)
+        mmc = swarm_mis(g)
         start3 = default_timer()
         mmc.process()
         end3 = default_timer()
-        print "Modified MIS check - ",
+        print "Swarm MIS check - ",
         mmc.check_colors()
-        print "Modified MIS - {} colors in {} sec".format(max(mmc.get_colors()),end3-start3)
+        print "Swarm MIS - {} colors in {} sec".format(max(mmc.get_colors()),end3-start3)
         print ""

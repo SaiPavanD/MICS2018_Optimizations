@@ -5,7 +5,7 @@ import metis
 from itertools import count, ifilterfalse
 from collections import Counter
 
-class modified_mis(mis):
+class swarm_mis(mis):
     def __init__(self, data):
         if not isinstance(data, nx.Graph):
             raise ValueError('Only networkx graphs are supported.')
